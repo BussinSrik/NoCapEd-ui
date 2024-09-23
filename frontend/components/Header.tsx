@@ -40,7 +40,8 @@ const Header: React.FC = () => {
    //     router.push('/')
    // }
     const handleSignOut = async () => {
-        await signOut({ callbackUrl: '/' })
+        await signOut({
+            callbackUrl: '/', redirect: true,});
       }
 
     return (
@@ -100,8 +101,7 @@ const Header: React.FC = () => {
                             <div className="relative" ref={profileRef}>
                                 <button
                                     onClick={() => setIsProfileOpen(!isProfileOpen)}
-                                    className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
-                                >
+                                    className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors">
                                     <img
                                         src={session.user?.image || '/default-avatar.png'}
                                         alt="Profile"
